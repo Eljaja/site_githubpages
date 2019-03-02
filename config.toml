@@ -1,0 +1,53 @@
+baseurl = "https://masme.me"
+languageCode = "ru-en"
+title = "Fedotov's blog"
+theme = "blackburn"
+author = "Fedotov Ilya"
+copyright = "&copy; 2018. All rights reserved."
+canonifyurls = true
+paginate = 10
+publishDir = "docs"
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+  subtitle = ""
+  brand = "SysBlog"
+  googleAnalytics = "UA-127975884-1"
+  disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "02 Jan 2006, 15:04"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Главная"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Посты"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "Посты"
+    url = "/post/"
+  [[menu.main]]
+    name = "Обо мне"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Написать мне"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "mailto:fedotow.ilja@gmail.com"
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  github = "Eljaja"

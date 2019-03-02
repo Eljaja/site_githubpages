@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your site title</title>
+    <link>https://www.example.com/</link>
+    <description>Recent content on Your site title</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 15 Sep 2018 09:33:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Скрипт для перемещения заблокированных пользователей  Active Directory </title>
+      <link>https://www.example.com/post/first_post/</link>
+      <pubDate>Sat, 15 Sep 2018 09:33:58 +0000</pubDate>
+      
+      <guid>https://www.example.com/post/first_post/</guid>
+      <description>#Получение массива пользователей исходя из папки users на определенном терминальном сервере $arr1 = Get-ChildItem &amp;#39;\\192.168.0.31\C$\Users&amp;#39; |Where-Object {$_.PSIsContainer} |Foreach-Object {$_.Name}# получение списка заблокированных пользоватлей $blocked = Search-ADAccount -AccountDisabled $blocked = $blocked.SamAccountName# просто вложенные циклы которые проверяют принадлежность заблокированных пользоватлей в существующих терминалах foreach ($Blockeduser in $blocked) {foreach ($WhiteUser in $arr1) {if ($Blockeduser -like $WhiteUser){#for 1 mkdir D:\TRM1\$BlockeduserRobocopy.exe \\192.168.0.31\C$\Users\$Blockeduser D:\TRM\$Blockeduser /MOVE /E /COPYALL /xj /xf *.</description>
+    </item>
+    
+  </channel>
+</rss>

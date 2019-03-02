@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Fedotov&#39;s blog</title>
+    <link>https://masme.me/post/</link>
+    <description>Recent content in Posts on Fedotov&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 15 Sep 2018 09:33:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://masme.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Скрипт для перемещения заблокированных пользователей  Active Directory </title>
+      <link>https://masme.me/post/first_post/</link>
+      <pubDate>Sat, 15 Sep 2018 09:33:58 +0000</pubDate>
+      
+      <guid>https://masme.me/post/first_post/</guid>
+      <description>Скрипт достаточно незамысловатый. Лежит на сервере, где крутится контроллер домена. К контроллеру подключена хранилка по smb или iscsi. Сначала получаем массивом список пользователей на определенном терминальном сервере сервере, сравниваем с заблокированными, перемещаем. Всё просто и празаично
+#Получение массива пользователей исходя из папки users на определенном терминальном сервере $arr1 = Get-ChildItem &amp;#39;\\192.168.0.31\C$\Users&amp;#39; |Where-Object {$_.PSIsContainer} |Foreach-Object {$_.Name}# получение списка заблокированных пользоватлей $blocked = Search-ADAccount -AccountDisabled $blocked = $blocked.</description>
+    </item>
+    
+  </channel>
+</rss>
