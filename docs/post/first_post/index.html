@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.49" />
+  <meta name="generator" content="Hugo 0.40.1" />
 
   <title>Скрипт для перемещения заблокированных пользователей  Active Directory  &middot; Fedotov&#39;s blog</title>
 
@@ -237,21 +237,21 @@
 
   <p>Скрипт достаточно незамысловатый. Лежит на сервере, где крутится контроллер домена. К контроллеру подключена хранилка по smb или iscsi. Сначала получаем массивом список пользователей на определенном терминальном сервере сервере, сравниваем с заблокированными, перемещаем. Всё просто и празаично</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps1" data-lang="ps1"><span style="color:#75715e">#Получение массива пользователей исходя из папки  users на определенном терминальном сервере</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps1" data-lang="ps1"><span style="color:#75715e">#Получение массива пользователей исходя из папки  users на определенном терминальном сервере</span>
 $arr1 = Get-ChildItem <span style="color:#e6db74">&#39;\\192.168.0.31\C$\Users&#39;</span> |
        Where-Object {$_.PSIsContainer} |
        <span style="color:#66d9ef">Foreach</span>-Object {$_.Name}
 
-<span style="color:#75715e"># получение списка заблокированных пользоватлей</span>
+<span style="color:#75715e"># получение списка заблокированных пользоватлей</span>
 $blocked = Search-ADAccount -AccountDisabled  
 $blocked =  $blocked.SamAccountName
-<span style="color:#75715e"># просто вложенные циклы которые проверяют принадлежность заблокированных пользоватлей в терминале и переносят их на диск</span>
+<span style="color:#75715e"># просто вложенные циклы которые проверяют принадлежность заблокированных пользоватлей в терминале и переносят их на диск</span>
 <span style="color:#66d9ef">foreach</span> ($Blockeduser <span style="color:#66d9ef">in</span> $blocked) {
   <span style="color:#66d9ef">foreach</span> ($WhiteUser <span style="color:#66d9ef">in</span> $arr1) {
     <span style="color:#66d9ef">if</span> ($Blockeduser <span style="color:#f92672">-like</span> $WhiteUser)
     {
     mkdir D<span style="color:#960050;background-color:#1e0010">:</span>\TRM1\$Blockeduser
-    Robocopy.exe \\192.168.0.31\C$\Users\$Blockeduser D<span style="color:#960050;background-color:#1e0010">:</span>\TRM\$Blockeduser /MOVE /E /COPYALL /xj /xf *.TMP /xf *.lst <span style="color:#75715e">#Перемещаем</span>
+    Robocopy.exe \\192.168.0.31\C$\Users\$Blockeduser D<span style="color:#960050;background-color:#1e0010">:</span>\TRM\$Blockeduser /MOVE /E /COPYALL /xj /xf *.TMP /xf *.lst <span style="color:#75715e">#Перемещаем</span>
     }
    }</code></pre></div>
 
